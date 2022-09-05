@@ -30,6 +30,6 @@ RUN useradd -p 'jokes@2022' hadoop; \
     chown hadoop:hadoop -R ${HADOOP_HOME}/; \
     ${HADOOP_HOME}/bin/hdfs namenode -format --non-interactive;
 
-EXPOSE 9000
+EXPOSE 9870
 
 ENTRYPOINT ["supervisord", "-c", "/etc/supervisord.conf", "-n"]
