@@ -6,7 +6,7 @@ USER root
 
 ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk
 
-ENV HADOOP_VER 3.3.4
+ENV HADOOP_VER 2.10.2
 ENV HADOOP_HOME /opt/hadoop
 ENV HADOOP_CONF_DIR /opt/hadoop/etc/hadoop
 
@@ -15,7 +15,7 @@ ENV PATH $HADOOP_HOME/bin:${JAVA_HOME}/bin:$PATH
 WORKDIR /tmp/docker
 
 # Apache Hadoop
-RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-${HADOOP_VER}/hadoop-${HADOOP_VER}.tar.gz; \
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOOP_VER}/hadoop-${HADOOP_VER}.tar.gz --no-check-certificate; \
     tar xvf hadoop-${HADOOP_VER}.tar.gz; \
     mv hadoop-${HADOOP_VER} /opt; \
     ln -s /opt/hadoop-${HADOOP_VER} /opt/hadoop
